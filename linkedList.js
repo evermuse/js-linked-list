@@ -175,3 +175,51 @@ var listReveal = (function() {
   return listReveal;
 
 }
+
+var ll = linkedListGenerator();
+
+ll.add('ant');
+ll.add('bat');
+ll.add('cat');
+ll.add('dog');
+ll.add('elephant');
+ll.add('fish');
+ll.add('giraffe');
+ll.add('hippo');
+
+var i = 0;
+var current = ll.getHead();
+var last = current;
+
+// runs ll.get() as the conditional
+
+while (ll.get(i)) {
+
+  if (last !== null) {
+
+    console.log(current.value);
+    last = current.next;
+    current = current.next;
+    i++;
+
+  } else {
+
+    console.log(last);
+
+  }
+
+}
+
+// aborted hasNext function below, decided didn't need it, could add if necessary
+
+/*
+
+function hasNext() {
+
+  for ( var i = 0; ll.get(i + 1); i++) {
+
+    return true;
+
+  }
+
+} */
