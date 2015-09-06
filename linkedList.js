@@ -4,6 +4,7 @@
  * @return {Object} an object exposing methods to be used to manipulate a linked list
  */
 
+// var eyes = require('eyes');
 
 function linkedListGenerator() {
 
@@ -78,35 +79,65 @@ var listReveal = (function() {
 
     function _remove(number) {
 
-      theNode = _getHead();
-      theNext = _getHead().next.next;
+      var temp1 = _getHead();
+      var tailNow = _getTail();
 
-      for (var i = 0; i <= number; i++) {
+      if ( _get(number)) {
 
-        if (i === number) {
+        if ( number === 0 ) {
 
-          theNext ;
+          head = _getHead().next;
 
+        } else if ( number === 1 ) {
 
-        } else if (theNode.next === null) {
+          temp2 = temp1.next;
+          temp1.next = temp2.next;
 
-          return false;
+          if (temp1.next === null) {
+
+            tail = temp1;
+
+          }
 
         } else {
 
-          theNode = theNode.next;
+          for ( var i = 0; i <= number - 2; i++ ) {
+
+            temp1 = temp1.next;
+            temp2 = temp1.next;
+            temp1.next = temp2.next;
+
+            if (temp1.next === null) {
+
+              tail = temp1;
+
+            }
+
+          }
 
         }
+
+      } else {
+
+        return false;
 
       }
 
     }
 
-    }
-
     function _insert(item, number) {
 
+      if ( _get(number)) {
 
+
+
+
+
+      } else {
+
+        return false;
+
+      }
 
     }
 
@@ -127,10 +158,66 @@ var listReveal = (function() {
 
 }
 
+/*
+
+var urLList = linkedListGenerator();
+eyes.inspect(urLList.add("new.y"));
+eyes.inspect(urLList.add("mozilla"));
+eyes.inspect(urLList.add("eff"));
+eyes.inspect(urLList.add("icann"));
+
+// eyes.inspect(urLList.get(2));
+
+//eyes.inspect(urLList.getHead());
+//eyes.inspect(urLList.getTail());
+
+eyes.inspect(urLList.remove(2));
+eyes.inspect(urLList.get(2));
+
+//eyes.inspect(urLList.get(0));
+
+//eyes.inspect(urLList.getHead());
+//eyes.inspect(urLList.getTail());
 
 
-/* if (next !== null) {
 
-        checker =
 
-      } */
+
+var current = _getHead();
+      var previous;
+
+      if ( number === 0 ) {
+
+        head = current.next;
+
+      } else {
+
+        for ( var i = 0; i < number; i++ ) {
+
+          previous = current;
+          current = current.next;
+
+        }
+
+        previous.next = current;
+
+      }
+
+    }
+
+    function _insert(item, number) {
+
+
+
+
+
+
+
+
+if ( number === undefined) {
+
+        return false;
+
+      } else
+
+*/
