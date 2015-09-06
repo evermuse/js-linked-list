@@ -4,8 +4,6 @@
  * @return {Object} an object exposing methods to be used to manipulate a linked list
  */
 
-// var eyes = require('eyes');
-
 function linkedListGenerator() {
 
   var head = null;
@@ -17,7 +15,7 @@ var listReveal = (function() {
 
     function _getHead() {
 
-     return head;
+      return head;
 
     }
 
@@ -129,9 +127,29 @@ var listReveal = (function() {
 
       if ( _get(number)) {
 
+        var current;
 
+        var makeNode = {
 
+          value : item,
+          next : undefined
 
+        };
+
+        if (number === 0) {
+
+          current = _get(0);
+          head = makeNode;
+          makeNode.next = current;
+
+        } else {
+
+          current = _get(number - 1);
+          toMove = current.next;
+          current.next = makeNode;
+          makeNode.next = toMove;
+
+        }
 
       } else {
 
@@ -157,67 +175,3 @@ var listReveal = (function() {
   return listReveal;
 
 }
-
-/*
-
-var urLList = linkedListGenerator();
-eyes.inspect(urLList.add("new.y"));
-eyes.inspect(urLList.add("mozilla"));
-eyes.inspect(urLList.add("eff"));
-eyes.inspect(urLList.add("icann"));
-
-// eyes.inspect(urLList.get(2));
-
-//eyes.inspect(urLList.getHead());
-//eyes.inspect(urLList.getTail());
-
-eyes.inspect(urLList.remove(2));
-eyes.inspect(urLList.get(2));
-
-//eyes.inspect(urLList.get(0));
-
-//eyes.inspect(urLList.getHead());
-//eyes.inspect(urLList.getTail());
-
-
-
-
-
-var current = _getHead();
-      var previous;
-
-      if ( number === 0 ) {
-
-        head = current.next;
-
-      } else {
-
-        for ( var i = 0; i < number; i++ ) {
-
-          previous = current;
-          current = current.next;
-
-        }
-
-        previous.next = current;
-
-      }
-
-    }
-
-    function _insert(item, number) {
-
-
-
-
-
-
-
-
-if ( number === undefined) {
-
-        return false;
-
-      } else
-
-*/
